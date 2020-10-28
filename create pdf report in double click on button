@@ -1,0 +1,9 @@
+    $(document).ready(function(){
+        $(".showReportDateWise").dblclick(function(){
+            let paramOne = $(this).val();
+            let paramTwo = $('#fromDate').val();
+            let paramThree = $('#toDate').val();			
+            let URL = "<?php echo site_url('controller_name/method_name/') ?>/" + paramOne +"/"+ paramTwo +"/"+ paramThree;
+            let openReportNewWindow = window.open(URL, "_blank");
+        });
+    });

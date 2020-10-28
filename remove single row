@@ -1,0 +1,7 @@
+    let allNote = document.querySelectorAll('.removeSingleNotification');
+    for(let index = 0; index < allNote.length; index++) {
+        allNote[index].querySelector('.closebtn').addEventListener('click', function () {
+            this.closest('.removeSingleNotification').remove();
+
+        }) ;
+    }

@@ -1,0 +1,52 @@
+﻿DOM (Document Object Model) is a fundamental concept in front-end, and for sure, everyone who tried to learn programming has heard about it more than once. For beginners, it’s not so easy to understand what it exactly is and how to manipulate it. DOM manipulation isn’t so easy and comfortable, and the most important, it brings a lot of issues with performance. Nowadays, there are two essential concepts of DOM came with progressive web frameworks like Angular, React.js or Vue.js, Shadow DOM and Virtual DOM. In this article, I want to explain:what is the Document Object Model (DOM),
+* what is Shadow DOM,
+* what is Virtual DOM,
+* what is the difference between Shadow DOM and Virtual DOM
+I will also try to tell you about the differences between them and what advantages and disadvantages each of them brings. Let’s start with an explanation of what DOM is.
+1. What is DOM?
+Beginners often mislead DOM with what they create as an HTML structure of their website or application. But HTML becomes the DOM after the browser parses it, then it becomes the DOM. The definition says that DOM is an API for HTML or XML documents and it creates a logical structure which can be accessed and manipulated. In other words, Javascript can access and do changes in the Document Object Model. The reason to implement the Document Object Model was to provide a standard programming interface, which could be used with any programming language in different environments. By DOM modification, we can understand adding, delete, or modify the elements of the website, assigning them different behavior, etc. Every browser has its global object, called window. Inside the window, there are different properties and methods. One of the properties in the window object is a document where we may find lots of properties and methods which can be used to access the DOM elements to interact with them. The graphic representation of the DOM looks like in the example below:
+  
+
+As you can see, it’s created as a tree. It starts from the main document object, then the object is created, and element leads to and , and so on. Each of the objects represents an HTML element from the website as an object, with properties, attributes, and methods which allows to modify it.
+2. Shadow DOM
+Shadow DOM is a tool used to build component-based apps and websites. Shadow DOM comes in small pieces, and it doesn’t represent the whole Document Object Model. We can see it as a subtree or as a separate DOM for an element. Shadow DOM can be imaged like bricks from which the DOM is created. The main difference between DOM and Shadow DOM is how it’s created and how it behaves. Normally DOM nodes which we create are placed inside other elements, like in the tree we saw before. In the case of Shadow DOM, we create a scoped tree, which is connected to the element but separated from the children elements. It’s called shadow tree and the element it’s attached to is called shadow host. And here we come to a great advantage of the Shadow DOM, everything which we will add to Shadow DOM is local, even styles. Let’s explain why Shadow DOM is so useful and what issues it solves. First of all, it isolates the DOM, so the DOM of the component is a separate element which won’t appear in a global DOM. Another issue it helps with is scoping of the CSS, which means styles created inside the single Shadow DOM element are isolated and stays in the scope of that Shadow DOM. It simplifies styling a lot as we don’t have to worry a lot about naming space and we can use simple selectors and class names. Also, we can think of the application as it is built from chunks (it is based on the components actually) and not as a one massive, global object. Shadow DOM can affect the performance of the application. As said at the beginning of the article, there are a lot of performance issues while we want to manipulate the DOM, because every change will make a re-rendering of the whole object. In the case of Shadow DOM browser knows which part should be updated.
+3. Virtual DOM
+Virtual DOM is a concept of DOM used by React.js and Vue.js. In Virtual DOM concept copy of DOM is saved in the memory and while any change is done in the DOM, it’s compared to find differences. Then browser knows which elements were changed and can update only those part of the application to avoid re-rendering all the DOM. It’s done to improve the performance of the UI libraries. As we know, form the previous paragraph in DOM, every element is re-rendered, no matter if it was changed or not. Let’s check in depth how Virtual DOM works step by step. So first, the change is done, and it’s done to the Virtual DOM, not to the original DOM, then the Virtual DOM is compared with the Document Object Model, and this process is called „diffing”. While the differences are found then browser know which elements in the original DOM should be updated and the update is done. In the Virtual DOM concept, it’s possible to apply more than one change at once, to avoid re-rendering for every single element change. The biggest issue that Virtual DOM solves is the performance improvement on DOM manipulation.
+4. Differences between Shadow DOM and Virtual DOM
+The only thing which is common for both is that they help with performance issues. Both create a separate instance of the Document Object Model; besides this, both concepts are different. Virtual DOM is creating a copy of the whole DOM object, and Shadow DOM creates small pieces of the DOM object which has their own, isolated scope for the element they represent.
+Conclusion
+DOM concept is very important in front-end programming, but with the development of technology and new libraries, improvements came to Document Object Model as well. With progressive web frameworks, we can use Shadow DOM and Virtual DOM to avoid issues with performance and modify the DOM faster and more efficient. Now, it’s not a point of worry anymore, how to interact with the DOM object to not charm the performance, as the growth of technology came with help. I hope you find this article helpful in understanding what the DOM is and how Virtual and Shadow DOM concepts work. Also, I explained the main differences between them and the issues they solved. Have a nice coding!
+You might have heard about the virtual DOM concept of ReactJS and how it changed the complete world with its supersonic speed. Is it really so or just nonsense? Probably! Well, it is not the only feature that makes ReactJS superior to its contemporaries. There are lot More features like React Components, React Elements, Unidirectional flow makes it powerful. There are three kinds of DOMs present in React which are real DOM, Shadow DOM, and the virtual DOM.
+The normal DOM or the actual one is nothing but the object-based representation of the HTML elements. The browser converts the code into a tree-like structure that is made into javascript and compiled by the HTML and CSS compilers. There are multiple processes takes place to create a view on the browser as below.
+  
+
+DOM: It is an object-based representation of all the elements present on the webpage. We can see the normal HTML representation of the code as below.
+  
+
+At the time of compilation inside the browser, the DOM like structure can be seen as below.
+  
+
+Source: https://software.hixie.ch/utilities/js/live-dom-viewer/
+Now, the virtual DOM is the same copy of the actual DOM that is maintained inside the RAM of the browser. React uses this VDOM for its execution and it renders the page. So, whenever the change is detected in the States of the application, it creates another VDOM of the updated values. Now, instead of rendering the Complete webpage on every change detection, it just compares the changed part and reflects it in the actual DOM.
+The detection of change takes place using the ‘Diffing’ Algorithm and the process of transforming them into actual DOM is known as ‘Reconciliation’. Unlike other frameworks, it does not renders the complete page for every change. Hence it makes React faster.
+Now, let’s consider you have implemented the third party CSS library for the look and feel of the table. Due to this all other UI elements like sidebar, header, and footer are also been impacted and the styles are disturbed. Hence, to maintain such kind of encapsulation between certain subtrees inside the main DOM-tree, HTML5 has come up with the shadow DOM concept.
+Shadow DOM is not a standalone document like the actual DOM, but it resides in it. It’s very similar to the component-based architecture of React or angular where every component has its own set of stylesheets and global styles as well. ReactJS does not use the shadow DOM for making it faster, it completely relies on the virtual one. But anyone can use this feature of HTML5 intentionally if required.
+One of the way to define a function is known as a function expression. This way, it’s possible to define a named and anonymous function as well. Also, hoisting doesn’t work in this case, so the function has to be defined first, and then it can be used. Most functions created with this method are assigned to a variable. Let’s take a look at the code example:
+var sayHi = function (name) {
+   return 'Hi' + name;
+}
+In the example above function is assigned to variable sayHi, but the function itself doesn’t have a name, so we may call this function anonymous.
+Return
+In the example above, our function returned a string with the parameter. Every function needs to return a result if there isn’t any return statement defined the function will return undefined. Let’s check it on an example:
+// With return
+function calc(a, b) {
+   return a + b;
+}
+calc(1, 4) // returns 5
+// Without return
+function calc(a, b) {
+ a + b;
+}
+calc(1, 4) // returns undefined
+In the example above the first function returns the result of math operation, and the other one doesn’t have the return statement, which means it will return undefined.
+Parameters and arguments
